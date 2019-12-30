@@ -15,6 +15,12 @@ import Body from './js/body.js'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './index.css'
 
+//Redux Imports
+import {store} from './store/store.js'
+
+const rootElement = document.getElementById("root");
+
+
 function App(){
     return (
         <div>
@@ -45,9 +51,11 @@ function App(){
 }
 ReactDOM.render(
     <Router>
-      <App />
+        <Provider store={store}>
+            <App />
+        </Provider>
     </Router>,
-    document.getElementById("root")
+    rootElement
 );
 
 
